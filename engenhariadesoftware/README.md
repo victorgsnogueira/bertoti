@@ -1,2 +1,1 @@
-# bertoti
-bertoti
+com base nos trechos lidos, entendo que engenharia de software vai muito além do que somente codar, ela envolve pensamentos que vão além, como longevidade do código, escalabilidade e custos referente ao software, seja ele tempo ou dinheiro com ferramentas para auxiliar, acredito que a engenharia de software existe para mudar a forma como enxergamos o ato de programar em si, não levando em conta somente performance e experiencia de usuário.
