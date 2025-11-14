@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catálogo de Livros</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="app-header">
+		<h1>Catálogo de Livros</h1>
+	</header>
+
+	<main class="container">
+		<section class="form-row">
+			<input id="tituloInput" type="text" placeholder="Título do livro" />
+			<button id="adicionarBtn" class="primary">Adicionar</button>
+		</section>
+
+		<section>
+			<table class="tabela">
+				<thead>
+					<tr>
+						<th>Título</th>
+						<th style="width: 220px;">Ações</th>
+					</tr>
+				</thead>
+				<tbody id="tabela-corpo">
+				</tbody>
+			</table>
+		</section>
+	</main>
+
+	<script src="index.js"></script>
+	</body>
+</html>

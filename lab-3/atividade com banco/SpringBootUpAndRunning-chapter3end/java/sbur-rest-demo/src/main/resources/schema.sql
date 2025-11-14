@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS livros (
+    id     VARCHAR(36)  NOT NULL PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL
+);
+
