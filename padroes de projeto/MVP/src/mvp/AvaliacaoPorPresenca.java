@@ -1,0 +1,20 @@
+package mvp;
+
+public class AvaliacaoPorPresenca implements AvaliacaoStrategy {
+    private final double presencaMinima;
+
+    public AvaliacaoPorPresenca(double presencaMinima) {
+        this.presencaMinima = presencaMinima;
+    }
+
+    @Override
+    public boolean aprovado(double nota, double presenca) {
+        return presenca >= presencaMinima;
+    }
+
+    @Override
+    public String getDescricao() {
+        return "presenca minima " + presencaMinima + "%";
+    }
+}
+
