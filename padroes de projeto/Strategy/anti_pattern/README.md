@@ -1,6 +1,29 @@
-# Strategy AntiPattern - Diagrama UML (ASCII)
+# Strategy AntiPattern
 
 ## Estrutura
+
+## Diagrama UML (Mermaid)
+
+```mermaid
+classDiagram
+    class MatriculaAntiPattern {
+        -String aluno
+        -double nota
+        -double presenca
+        -String tipoAvaliacao
+        +MatriculaAntiPattern(String aluno, double nota, double presenca, String tipoAvaliacao)
+        +emitirResultado() void
+    }
+
+    class Main {
+        +main(String[] args) void
+    }
+
+    Main ..> MatriculaAntiPattern : instancia
+    MatriculaAntiPattern ..> String : usa magic value
+```
+
+## Diagrama UML (ASCII)
 
 ```
 +------------------------------------------------+
@@ -31,4 +54,3 @@
 
 Aplicar o Strategy Pattern: extrair cada criterio para uma classe que
 implementa `AvaliacaoStrategy`.
-

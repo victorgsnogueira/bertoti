@@ -1,6 +1,51 @@
-# Observer Pattern - Diagrama UML (ASCII)
+# Observer Pattern
 
 ## Estrutura
+
+## Diagrama UML (Mermaid)
+
+```mermaid
+classDiagram
+    class CursoObserver {
+        <<interface>>
+        +atualizar(String nomeCurso, String status) void
+    }
+
+    class EmailAluno {
+        -String email
+        +EmailAluno(String email)
+        +atualizar(String nomeCurso, String status) void
+    }
+
+    class PainelProfessor {
+        -String professor
+        +PainelProfessor(String professor)
+        +atualizar(String nomeCurso, String status) void
+    }
+
+    class AppMentoria {
+        -String mentor
+        +AppMentoria(String mentor)
+        +atualizar(String nomeCurso, String status) void
+    }
+
+    class GerenciadorCurso {
+        -String nomeCurso
+        -List~CursoObserver~ observers
+        -String status
+        +adicionarObserver(CursoObserver observer) void
+        +removerObserver(CursoObserver observer) void
+        +atualizarStatus(String novoStatus) void
+        -notificarTodos() void
+    }
+
+    CursoObserver <|.. EmailAluno
+    CursoObserver <|.. PainelProfessor
+    CursoObserver <|.. AppMentoria
+    GerenciadorCurso o-- CursoObserver : observers
+```
+
+## Diagrama UML (ASCII)
 
 ```
 +-------------------------------+
@@ -49,4 +94,3 @@
 - Novos canais podem se registrar sem alterar `GerenciadorCurso`.
 - Observers podem ser adicionados e removidos em runtime.
 - Reduz acoplamento entre evento e reacao.
-

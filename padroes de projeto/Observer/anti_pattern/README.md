@@ -1,6 +1,33 @@
-# Observer AntiPattern - Diagrama UML (ASCII)
+# Observer AntiPattern
 
 ## Estrutura
+
+## Diagrama UML (Mermaid)
+
+```mermaid
+classDiagram
+    class GerenciadorCursoAntiPattern {
+        -String nomeCurso
+        -String status
+        -String emailAluno
+        -String professor
+        -String mentor
+        +GerenciadorCursoAntiPattern(String nomeCurso)
+        +configurarEmailAluno(String emailAluno) void
+        +configurarPainelProfessor(String professor) void
+        +configurarAppMentoria(String mentor) void
+        +atualizarStatus(String novoStatus) void
+    }
+
+    class Main {
+        +main(String[] args) void
+    }
+
+    Main ..> GerenciadorCursoAntiPattern : instancia
+    GerenciadorCursoAntiPattern ..> String : canais hardcoded
+```
+
+## Diagrama UML (ASCII)
 
 ```
 +------------------------------------------------+
@@ -35,4 +62,3 @@
 
 Criar a interface `CursoObserver` e fazer o subject manter uma lista de
 observers, sem conhecer implementacoes concretas.
-

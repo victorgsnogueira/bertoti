@@ -1,6 +1,51 @@
-# Strategy Pattern - Diagrama UML (ASCII)
+# Strategy Pattern
 
 ## Estrutura
+
+## Diagrama UML (Mermaid)
+
+```mermaid
+classDiagram
+    class AvaliacaoStrategy {
+        <<interface>>
+        +aprovado(double nota, double presenca) boolean
+    }
+
+    class AvaliacaoPorNota {
+        -double notaMinima
+        +AvaliacaoPorNota(double notaMinima)
+        +aprovado(double nota, double presenca) boolean
+    }
+
+    class AvaliacaoPorPresenca {
+        -double presencaMinima
+        +AvaliacaoPorPresenca(double presencaMinima)
+        +aprovado(double nota, double presenca) boolean
+    }
+
+    class AvaliacaoPorProjeto {
+        -double notaMinima
+        -double presencaMinima
+        +AvaliacaoPorProjeto(double notaMinima, double presencaMinima)
+        +aprovado(double nota, double presenca) boolean
+    }
+
+    class Matricula {
+        -String aluno
+        -double nota
+        -double presenca
+        -AvaliacaoStrategy avaliacaoStrategy
+        +setAvaliacaoStrategy(AvaliacaoStrategy avaliacaoStrategy) void
+        +emitirResultado() void
+    }
+
+    AvaliacaoStrategy <|.. AvaliacaoPorNota
+    AvaliacaoStrategy <|.. AvaliacaoPorPresenca
+    AvaliacaoStrategy <|.. AvaliacaoPorProjeto
+    Matricula o-- AvaliacaoStrategy : usa
+```
+
+## Diagrama UML (ASCII)
 
 ```
 +--------------------------------+
@@ -52,4 +97,3 @@
 - Novos criterios podem ser adicionados sem alterar `Matricula`.
 - Segue OCP e DIP.
 - O criterio pode ser trocado em tempo de execucao.
-
